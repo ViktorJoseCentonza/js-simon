@@ -67,7 +67,12 @@ buttonEl.addEventListener(`click`, getInputs)
 function getInputs(e) {
     e.preventDefault()
     for (let i = 0; i < 5; i++) {
-        userNumbers[i] = Number(inputElChildren[i].value)
+        if (isNaN(Number(inputElChildren[i].value)) != true) {
+            userNumbers[i] = Number(inputElChildren[i].value)
+        } else {
+            alert(`input error in field ${i}, you must use numbers`)
+        }
+
     }
     console.log(`these are the userNumbers   ${userNumbers}`);
     checkUserValues()
@@ -120,7 +125,18 @@ function displayOutput() {
     }
     //tell users number of correct guesses
     //tell users chosen numbers
-    messageEl.innerHTML = `you guessed ${correctNumbers.length} numbers right! they were ${correctNumbers}`
+    if (correctNumbers.length == 1) {
+        messageEl.innerHTML = `hai indovinato ${correctNumbers.length} numero!\n`
+    } else if (correctNumbers.length > 1 || correctNumbers.length == 0) {
+        messageEl.innerHTML = `hai indovinato ${correctNumbers.length} numeri!\n`
+    }
+
+    if (correctNumbers.length == 1) {
+        messageEl.innerHTML += `era: ${correctNumbers}`
+    } else if (correctNumbers.length > 1) {
+        messageEl.innerHTML += `erano: ${correctNumbers}`
+    }
+
 }
 
 
