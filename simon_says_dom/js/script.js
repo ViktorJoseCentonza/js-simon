@@ -109,10 +109,13 @@ function checkUserValues() {
 function displayOutput() {
     buttonEl.disabled = true;
     numbersListEl.classList.remove("d-none")
+    instructionsEl.innerText = "Grazie per aver giocato! torna presto!"
+    console.log(instructionsEl);
+
     for (let i = 0; i < 5; i++) {
         inputElChildren[i].readOnly = true;
     }
-
+    countdownEl.classList.add("text-center")
     if (correctNumbers.length == 0) {
         countdownEl.innerHTML = `Nemmeno uno? Sei un disastro!`
     } else if (correctNumbers.length == 1) {
