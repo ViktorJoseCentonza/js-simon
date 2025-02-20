@@ -1,0 +1,19 @@
+
+
+const countdownEl = document.getElementById(`countdown`)
+console.log(countdownEl);
+
+const instructionsEl = document.getElementById(`instructions`)
+console.log(instructionsEl);
+
+const numbersListEl = document.getElementById(`numbers-list`)
+console.log(numbersListEl);
+
+const answersFormEl = document.getElementById(`answers-form`)
+console.log(answersFormEl);
+
+const buttonEl = document.querySelector(`.btn`)
+console.log(buttonEl);
+
+const messageEl = document.getElementById(`message`)
+console.log(messageEl);
