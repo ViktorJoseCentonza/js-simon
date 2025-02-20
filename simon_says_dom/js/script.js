@@ -32,7 +32,7 @@ const correctNumbers = [];
 //generate 5 numbers with math.random and show them in the ul
 
 for (let i = 0; i < 5; i++) {
-    randomNumbers[i] = Math.floor(Math.random() * 50)
+    randomNumbers[i] = Math.floor(Math.random() * 100)
     numbersListEl.insertAdjacentHTML('beforeend', `<li class="list-item" </li>${randomNumbers[i]}</li>\n`)
 }
 console.log(`these are the randomNumbers ${randomNumbers}`);
