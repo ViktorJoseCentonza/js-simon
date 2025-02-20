@@ -120,8 +120,10 @@ function displayOutput() {
     } else if (correctNumbers.length == 2) {
         countdownEl.innerHTML = `bene, ma non benissimo, ritenta!`
     } else if (correctNumbers.length == 3) {
-        countdownEl.innerHTML = `quasi! ce la puoi fare!`
+        countdownEl.innerHTML = `sei a metà! ce la puoi fare!`
     } else if (correctNumbers.length == 4) {
+        countdownEl.innerHTML = `quasi! ti manca pochissimo!`
+    } else if (correctNumbers.length == 5) {
         countdownEl.innerHTML = `Congratulazioni! li hai scritti tutti!`
     }
 
