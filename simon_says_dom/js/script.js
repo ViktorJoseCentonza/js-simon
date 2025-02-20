@@ -1,5 +1,3 @@
-
-
 const countdownEl = document.getElementById(`countdown`)
 //console.log(countdownEl);
 
@@ -24,7 +22,6 @@ const buttonEl = document.querySelector(`.btn`)
 const messageEl = document.getElementById(`message`)
 //console.log(messageEl);
 
-
 let seconds = 5; //5s for debugging, should be 30
 const userNumbers = [];
 const randomNumbers = [];
@@ -32,7 +29,7 @@ const correctNumbers = [];
 //generate 5 numbers with math.random and show them in the ul
 
 for (let i = 0; i < 5; i++) {
-    randomNumbers[i] = Math.floor(Math.random() * 100)
+    randomNumbers[i] = Math.floor(Math.random() * 50)
     numbersListEl.insertAdjacentHTML('beforeend', `<li class="list-item" </li>${randomNumbers[i]}</li>\n`)
 }
 console.log(`these are the randomNumbers ${randomNumbers}`);
@@ -49,20 +46,13 @@ const countdownTimer = setInterval(function () {
         displayInputs()
         clearInterval(countdownTimer)
     }
-
-
 }, 1000)
-
-
-
-
 
 //functions
 function hideOutput() {
     countdownEl.innerHTML = `${seconds} secondi rimanenti!`
     instructionsEl.innerText = "Ora indovina i numeri! Puoi scriverli in qualsiasi ordine!"
     numbersListEl.classList.add("d-none")
-
 }
 
 //show inputs
@@ -84,28 +74,27 @@ function getInputs(e) {
 }
 //check inputs with original numbers
 
+
+
 function checkUserValues() {
 
     for (let i = 0; i < 5; i++) {
         //console.log(`this is inside the loop but outside the if! i'm the index of the ${i} element! and this is the index! ${randomNumbers.indexOf(userNumbers[i])}`);
-
         if (randomNumbers.indexOf(userNumbers[i]) > -1) {
             //console.log(`i'm in the verified check loop! and this is the index of the current (${i}) cycle, this is the index of the number in the random generated array!${randomNumbers.indexOf(userNumbers[i])}`);
+            randomNumbers[randomNumbers.indexOf(userNumbers[i])] = "-"
 
             correctNumbers.push(userNumbers[i])
             inputElChildren[i].classList.add("bg-success")
         } else {
             inputElChildren[i].classList.add("bg-danger")
         }
-
     }
-
     console.log(`these are the correctNumbers ${correctNumbers}`);
     displayOutput()
 }
 
 //tell users original numbers
-
 function displayOutput() {
     buttonEl.disabled = true;
     numbersListEl.classList.remove("d-none")
@@ -129,9 +118,11 @@ function displayOutput() {
     } else if (correctNumbers.length == 5) {
         countdownEl.innerHTML = `Congratulazioni! li hai scritti tutti!`
     }
-
+    //tell users number of correct guesses
+    //tell users chosen numbers
+    messageEl.innerHTML = `you guessed ${correctNumbers.length} numbers right! they were ${correctNumbers}`
 }
-//tell users number of correct guesses
 
-//tell users chosen numbers
+
+
 
