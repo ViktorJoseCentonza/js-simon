@@ -41,28 +41,34 @@ const countdownTimer = setInterval(function () {
     if (seconds == 1) {
         countdownEl.innerHTML = `${seconds} secondo rimanente!`
     } else if (seconds == 0) {
-        //make them disappear
+        //make numbers disappear
         hideOutput()
+        //show the user numbers
         displayInputs()
         clearInterval(countdownTimer)
     }
 }, 1000)
+//get the inputs from the fields
+buttonEl.addEventListener(`click`, getInputs)
+
+
 
 //functions
+
+//hide the randomnumbers
 function hideOutput() {
     countdownEl.innerHTML = `${seconds} secondi rimanenti!`
     instructionsEl.innerText = "Ora indovina i numeri! Puoi scriverli in qualsiasi ordine!"
     numbersListEl.classList.add("d-none")
 }
 
-//show inputs
+//show input fields
 
 function displayInputs() {
     answersFormEl.classList.remove("d-none")
 }
 
-//get inputs
-buttonEl.addEventListener(`click`, getInputs)
+//get the inputs from the fields
 
 function getInputs(e) {
     e.preventDefault()
@@ -75,11 +81,10 @@ function getInputs(e) {
 
     }
     console.log(`these are the userNumbers   ${userNumbers}`);
+    //check the values
     checkUserValues()
 }
-//check inputs with original numbers
-
-
+//check user inputs with original numbers
 
 function checkUserValues() {
 
@@ -99,7 +104,7 @@ function checkUserValues() {
     displayOutput()
 }
 
-//tell users original numbers
+//tell users original numbers after input
 function displayOutput() {
     buttonEl.disabled = true;
     numbersListEl.classList.remove("d-none")
